@@ -1,40 +1,40 @@
-Plan for Recipe Book Project
+# Plan for Recipe Book Project
 
-Object Oriented Design 
+### Object Oriented Design 
 
 Abstract Class (polymorphism):
-• Recipe
+- Recipe
 
 Subclass:
-• DinnerRecipe
-• DrinkRecipe
+- DinnerRecipe
+- DrinkRecipe
 (Each subclass will have unique attributes.)
 
 Attributes:
-• name (String) → name of the recipe
-• cookingTime (int) → preparation/cooking
+- name (String) → name of the recipe
+- cookingTime (int) → preparation/cooking
 time in minutes
-• calories (double) → calorie count of the recipe
+- calories (double) → calorie count of the recipe
 
 Abstract method:
-• displayRecipe() → prints details about the
+- displayRecipe() → prints details about the
 recipe (polymorphism: implemented
 differently by subclasses)
 
 Dinner(subclass) attributes:
-• cuisineType (String: Jamaican, Asian, etc.)
-• mainCourseType (String: meat, fish, vegan-
+- cuisineType (String: Jamaican, Asian, etc.)
+- mainCourseType (String: meat, fish, vegan-
 friendly, etc.)
-• sideDishPairing (String: rice and peas,
+- sideDishPairing (String: rice and peas,
 breadfruit, etc.)
 
 Drink(subclass) attributes:
-• fruitType (String: Mango, Strawberry, etc.)
-• nutritionalValue (String: Rich in Iron, Vitamin
+- fruitType (String: Mango, Strawberry, etc.)
+- nutritionalValue (String: Rich in Iron, Vitamin
 C, etc.)
-• isFreshlyMade (boolean: true/false)
+- isFreshlyMade (boolean: true/false)
 
-Data Management 
+### Data Management 
 • Store recipes in an ArrayList<Recipe>.
 • The program will provide options to:
 • Add new recipes (Dinner or Drink)

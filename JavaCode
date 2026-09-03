@@ -8,8 +8,8 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 /** Abstract class representing a general Recipe, serves as a base for
-DinnerRecipe and DrinkRecipe. */
-
+DinnerRecipe and DrinkRecipe. 
+*/
 abstract class Recipe {
 protected String name; // Recipe name
 protected int cookingTime; // Cooking/prep time in minutes
@@ -29,9 +29,10 @@ public String getName() { return name; }
 public int getCookingTime() { return cookingTime; }
 public double getCalories() { return calories; }
 }
+
 /**
 Class representing a Dinner Recipe. Extends Recipe and adds unique attributes
-like cuisine type, main course, and side dish.
+like cuisine type, main course, and side dish. 
 */
 class DinnerRecipe extends Recipe {
 private String cuisineType;
@@ -44,6 +45,7 @@ this.cuisineType = cuisineType;
 this.mainCourseType = mainCourseType;
 this.sideDishPairing = sideDishPairing;
 }
+
 // Implementation of abstract method for displaying dinner recipe
 @Override
 public void displayRecipe() {
@@ -58,6 +60,7 @@ System.out.println("Side Dish: " + sideDishPairing);
 System.out.println("===============================");
 }
 }
+
 /**
 */
 class DrinkRecipe extends Recipe {
@@ -73,6 +76,7 @@ this.fruitType = fruitType;
 this.nutritionalValue = nutritionalValue;
 this.isFreshlyMade = isFreshlyMade;
 }
+
 // Implementation of abstract method for displaying drink recipe
 @Override
 public void displayRecipe() {
@@ -87,6 +91,7 @@ System.out.println("Freshly Made: " + (isFreshlyMade ? "Yes" : "No"));
 System.out.println("===============================");
 }
 }
+
 /**
 * Main class managing the Recipe Book.Implements menu-driven interface,
 recipe management, and sorting features.
@@ -127,6 +132,7 @@ default -> System.out.println("Invalid option. Try again.");
 }
 }
 }
+
 // Displays the menu to the user
 private static void showMenu() {
 System.out.println("\n===== Recipe Book Menu =====");
@@ -138,6 +144,7 @@ System.out.println("5. Sort Recipes by Cooking Time");
 System.out.println("6. Sort Recipes by Calories");
 System.out.println("7. Exit");
 }
+
 // Adds a new Dinner recipe via user input
 private static void addDinnerRecipe() {
 System.out.print("Enter recipe name: ");
@@ -154,6 +161,7 @@ recipes.add(new DinnerRecipe(name, time, calories, cuisine, mainCourse,
 sideDish));
 System.out.println("Dinner recipe added successfully!");
 }
+
 // Adds a new Drink recipe via user input
 private static void addDrinkRecipe() {
 System.out.print("Enter recipe name: ");
@@ -169,6 +177,7 @@ recipes.add(new DrinkRecipe(name, time, calories, fruitType,
 nutritionalValue, isFresh));
 System.out.println("Drink recipe added successfully!");
 }
+
 // Displays all recipes currently in the list
 private static void displayAllRecipes() {
 if (recipes.isEmpty()) {
@@ -179,21 +188,25 @@ r.displayRecipe(); // Polymorphism in action
 }
 }
 }
+
 // Sorts recipes alphabetically by name
 private static void sortRecipesByName() {
 recipes.sort(Comparator.comparing(Recipe::getName));
 System.out.println("Recipes sorted by name.");
 }
+
 // Sorts recipes by cooking time
 private static void sortRecipesByCookingTime() {
 recipes.sort(Comparator.comparingInt(Recipe::getCookingTime));
 System.out.println("Recipes sorted by cooking time.");
 }
+
 // Sorts recipes by calories
 private static void sortRecipesByCalories() {
 recipes.sort(Comparator.comparingDouble(Recipe::getCalories));
 System.out.println("Recipes sorted by calories.");
 }
+
 // Input validation for integers
 private static int getIntInput(String prompt) {
 int num;
@@ -207,6 +220,7 @@ System.out.println("Invalid number. Try again.");
 }
 }
 }
+
 // Input validation for doubles
 private static double getDoubleInput(String prompt) {
 double num;
@@ -220,6 +234,7 @@ System.out.println("Invalid number. Try again.");
 }
 }
 }
+
 // Input validation for boolean (true/false)
 private static boolean getBooleanInput(String prompt) {
 while (true) {

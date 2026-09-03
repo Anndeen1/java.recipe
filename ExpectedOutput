@@ -7,8 +7,10 @@ Output:
 5. Sort Recipes by Cooking Time
 6. Sort Recipes by Calories
 7. Exit Choose an option:
+
 Sample Outputs:
 Recipe Book Menu
+
 Choose option 1:
 Dinner Recipe
 Name: Curry Chicken
@@ -17,6 +19,7 @@ Calories: 500.0
 Cuisine: Jamaican
 Main Course: Meat
 Side Dish: White Rice
+
 Choose option 2:
 Drink Recipe
 Name: Watermelon Lemon Juice

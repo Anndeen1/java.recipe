@@ -1,1 +1,96 @@
+Output:
+===== Recipe Book Menu =====
+1. Add Dinner Recipe
+2. Add Drink Recipe
+3. Display All Recipes
+4. Sort Recipes by Name
+5. Sort Recipes by Cooking Time
+6. Sort Recipes by Calories
+7. Exit Choose an option:
+Sample Outputs:
+Recipe Book Menu
+Choose option 1:
+Dinner Recipe
+Name: Curry Chicken
+Cooking Time: 70 minutes
+Calories: 500.0
+Cuisine: Jamaican
+Main Course: Meat
+Side Dish: White Rice
+Choose option 2:
+Drink Recipe
+Name: Watermelon Lemon Juice
+Cooking Time: 7 minutes
+Calories: 125.0
+Fruit Type: Watermelon & Lemon
+Nutritional Value: Rich in Vitamin C
+Freshly Made: Yes
+Choose option: 3
+Dinner Recipe
+Name: Brown Stew Chicken
+Cooking Time: 75 minutes
+Calories: 520.0
+Cuisine: Jamaican
+Main Course: Meat
+Side Dish: Rice and Peas
+Dinner Recipe
+Name: Jerk Chicken
+Cooking Time: 60 minutes
+Calories: 480.0
+Cuisine: Jamaican
+Main Course: Meat
+Side Dish: Breadfruit
+Dinner Recipe
+Name: Steamed Fish
+Cooking Time: 50 minutes
+Calories: 350.0
+Cuisine: Jamaican
+Main Course: Fish
+Side Dish: Dumplings
+Drink Recipe
+Name: Mango Pineapple Juice
+Cooking Time: 10 minutes
+Calories: 150.0
+Fruit Type: Mango & Pineapple
+Nutritional Value: Rich in Vitamin C
+Freshly Made: Yes
+Drink Recipe
+Name: Berry Juice
+Cooking Time: 8 minutes
+Calories: 130.0
+Fruit Type: Mixed Berries
+Nutritional Value: Rich in Antioxidants
+Freshly Made: Yes
+Drink Recipe
+Name: Beets Apple Juice
+Cooking Time: 7 minutes
+Calories: 120.0
+Fruit Type: Beets & Apple
+Nutritional Value: Rich in Iron & Vitamin C
+Freshly Made: Yes
 
+Choose option 4:
+Beets Apple Juice
+Berry Juice
+Brown Stew Chicken
+Jerk Chicken
+Mango Pineapple Juice
+Steamed Fish
+
+Choose option 5:
+Beets Apple Juice (7 min)
+Berry Juice (8 min)
+Mango Pineapple Juice (10 min)
+Steamed Fish (50 min)
+Jerk Chicken (60 min)
+Brown Stew Chicken (75 min)
+
+Choose option 6:
+Beets Apple Juice (120)
+Berry Juice (130)
+Mango Pineapple Juice (150)
+Steamed Fish (350)
+Jerk Chicken (480)
+Brown Stew Chicken (520)
+Choose option 7:
+Exiting Recipe Book. Goodbye!

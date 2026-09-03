@@ -1,23 +1,27 @@
+# Code: 
 
-Code: (tested through https://www.jdoodle.com/online-java-compiler )
+* tested through https://www.jdoodle.com/online-java-compiler *
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
-/**
-Abstract class representing a general Recipe, serves as a base for
-DinnerRecipe and DrinkRecipe.
-*/
+
+/** Abstract class representing a general Recipe, serves as a base for
+DinnerRecipe and DrinkRecipe. */
+
 abstract class Recipe {
 protected String name; // Recipe name
 protected int cookingTime; // Cooking/prep time in minutes
 protected double calories; // Calorie count
+
 // Constructor for Recipe
 public Recipe(String name, int cookingTime, double calories) {
 this.name = name;
 this.cookingTime = cookingTime;
 this.calories = calories;
 }
+
 // Abstract method to display recipe details (polymorphic)
 public abstract void displayRecipe();
 // Getters used for sorting

@@ -1,3 +1,233 @@
+
+Code: (tested through https://www.jdoodle.com/online-java-compiler )
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+/**
+Abstract class representing a general Recipe, serves as a base for
+DinnerRecipe and DrinkRecipe.
+*/
+abstract class Recipe {
+protected String name; // Recipe name
+protected int cookingTime; // Cooking/prep time in minutes
+protected double calories; // Calorie count
+// Constructor for Recipe
+public Recipe(String name, int cookingTime, double calories) {
+this.name = name;
+this.cookingTime = cookingTime;
+this.calories = calories;
+}
+// Abstract method to display recipe details (polymorphic)
+public abstract void displayRecipe();
+// Getters used for sorting
+public String getName() { return name; }
+public int getCookingTime() { return cookingTime; }
+public double getCalories() { return calories; }
+}
+/**
+Class representing a Dinner Recipe. Extends Recipe and adds unique attributes
+like cuisine type, main course, and side dish.
+*/
+class DinnerRecipe extends Recipe {
+private String cuisineType;
+private String mainCourseType;
+private String sideDishPairing;
+public DinnerRecipe(String name, int cookingTime, double calories,
+String cuisineType, String mainCourseType, String sideDishPairing) {
+super(name, cookingTime, calories);
+this.cuisineType = cuisineType;
+this.mainCourseType = mainCourseType;
+this.sideDishPairing = sideDishPairing;
+}
+// Implementation of abstract method for displaying dinner recipe
+@Override
+public void displayRecipe() {
+System.out.println("===============================");
+System.out.println("Dinner Recipe");
+System.out.println("Name: " + name);
+System.out.println("Cooking Time: " + cookingTime + " minutes");
+System.out.println("Calories: " + calories);
+System.out.println("Cuisine: " + cuisineType);
+System.out.println("Main Course: " + mainCourseType);
+System.out.println("Side Dish: " + sideDishPairing);
+System.out.println("===============================");
+}
+}
+/**
+*/
+class DrinkRecipe extends Recipe {
+private String fruitType;
+private String nutritionalValue;
+private boolean isFreshlyMade;
+* Class representing a Drink Recipe.Extends Recipe and adds unique attributes
+like fruit type, nutritional value, and freshness.
+public DrinkRecipe(String name, int cookingTime, double calories,
+String fruitType, String nutritionalValue, boolean isFreshlyMade) {
+super(name, cookingTime, calories);
+this.fruitType = fruitType;
+this.nutritionalValue = nutritionalValue;
+this.isFreshlyMade = isFreshlyMade;
+}
+// Implementation of abstract method for displaying drink recipe
+@Override
+public void displayRecipe() {
+System.out.println("===============================");
+System.out.println("Drink Recipe");
+System.out.println("Name: " + name);
+System.out.println("Cooking Time: " + cookingTime + " minutes");
+System.out.println("Calories: " + calories);
+System.out.println("Fruit Type: " + fruitType);
+System.out.println("Nutritional Value: " + nutritionalValue);
+System.out.println("Freshly Made: " + (isFreshlyMade ? "Yes" : "No"));
+System.out.println("===============================");
+}
+}
+/**
+* Main class managing the Recipe Book.Implements menu-driven interface,
+recipe management, and sorting features.
+*/
+public class RecipeBook {
+private static ArrayList recipes = new ArrayList<>(); // Stores all recipes
+private static Scanner scanner = new Scanner(System.in);
+public static void main(String[] args) {
+// Pre-load recipes to demonstrate program functionality
+recipes.add(new DinnerRecipe("Brown Stew Chicken", 75, 520.0,
+"Jamaican", "Meat", "Rice and Peas"));
+recipes.add(new DinnerRecipe("Jerk Chicken", 60, 480.0,
+"Jamaican", "Meat", "Breadfruit"));
+recipes.add(new DinnerRecipe("Steamed Fish", 50, 350.0,
+"Jamaican", "Fish", "Dumplings"));
+recipes.add(new DrinkRecipe("Mango Pineapple Juice", 10, 150.0,
+"Mango & Pineapple", "Rich in Vitamin C", true));
+recipes.add(new DrinkRecipe("Berry Juice", 8, 130.0,
+"Mixed Berries", "Rich in Antioxidants", true));
+recipes.add(new DrinkRecipe("Beets Apple Juice", 7, 120.0,
+"Beets & Apple", "Rich in Iron & Vitamin C", true));
+boolean running = true;
+while (running) {
+showMenu(); // Display menu options
+int choice = getIntInput("Choose an option: "); // Get user input
+switch (choice) {
+case 1 -> addDinnerRecipe();
+case 2 -> addDrinkRecipe();
+case 3 -> displayAllRecipes();
+case 4 -> sortRecipesByName();
+case 5 -> sortRecipesByCookingTime();
+case 6 -> sortRecipesByCalories();
+case 7 -> {
+System.out.println("Exiting Recipe Book. Goodbye!");
+running = false;
+}
+default -> System.out.println("Invalid option. Try again.");
+}
+}
+}
+// Displays the menu to the user
+private static void showMenu() {
+System.out.println("\n===== Recipe Book Menu =====");
+System.out.println("1. Add Dinner Recipe");
+System.out.println("2. Add Drink Recipe");
+System.out.println("3. Display All Recipes");
+System.out.println("4. Sort Recipes by Name");
+System.out.println("5. Sort Recipes by Cooking Time");
+System.out.println("6. Sort Recipes by Calories");
+System.out.println("7. Exit");
+}
+// Adds a new Dinner recipe via user input
+private static void addDinnerRecipe() {
+System.out.print("Enter recipe name: ");
+String name = scanner.nextLine();
+int time = getIntInput("Enter cooking time (mins): ");
+double calories = getDoubleInput("Enter calories: ");
+System.out.print("Enter cuisine type: ");
+String cuisine = scanner.nextLine();
+System.out.print("Enter main course type: ");
+String mainCourse = scanner.nextLine();
+System.out.print("Enter side dish pairing: ");
+String sideDish = scanner.nextLine();
+recipes.add(new DinnerRecipe(name, time, calories, cuisine, mainCourse,
+sideDish));
+System.out.println("Dinner recipe added successfully!");
+}
+// Adds a new Drink recipe via user input
+private static void addDrinkRecipe() {
+System.out.print("Enter recipe name: ");
+String name = scanner.nextLine();
+int time = getIntInput("Enter cooking time (mins): ");
+double calories = getDoubleInput("Enter calories: ");
+System.out.print("Enter fruit type: ");
+String fruitType = scanner.nextLine();
+System.out.print("Enter nutritional value: ");
+String nutritionalValue = scanner.nextLine();
+boolean isFresh = getBooleanInput("Is it freshly made? (true/false): ");
+recipes.add(new DrinkRecipe(name, time, calories, fruitType,
+nutritionalValue, isFresh));
+System.out.println("Drink recipe added successfully!");
+}
+// Displays all recipes currently in the list
+private static void displayAllRecipes() {
+if (recipes.isEmpty()) {
+System.out.println("No recipes available.");
+} else {
+for (Recipe r : recipes) {
+r.displayRecipe(); // Polymorphism in action
+}
+}
+}
+// Sorts recipes alphabetically by name
+private static void sortRecipesByName() {
+recipes.sort(Comparator.comparing(Recipe::getName));
+System.out.println("Recipes sorted by name.");
+}
+// Sorts recipes by cooking time
+private static void sortRecipesByCookingTime() {
+recipes.sort(Comparator.comparingInt(Recipe::getCookingTime));
+System.out.println("Recipes sorted by cooking time.");
+}
+// Sorts recipes by calories
+private static void sortRecipesByCalories() {
+recipes.sort(Comparator.comparingDouble(Recipe::getCalories));
+System.out.println("Recipes sorted by calories.");
+}
+// Input validation for integers
+private static int getIntInput(String prompt) {
+int num;
+while (true) {
+try {
+System.out.print(prompt);
+num = Integer.parseInt(scanner.nextLine());
+return num;
+} catch (NumberFormatException e) {
+System.out.println("Invalid number. Try again.");
+}
+}
+}
+// Input validation for doubles
+private static double getDoubleInput(String prompt) {
+double num;
+while (true) {
+try {
+System.out.print(prompt);
+num = Double.parseDouble(scanner.nextLine());
+return num;
+} catch (NumberFormatException e) {
+System.out.println("Invalid number. Try again.");
+}
+}
+}
+// Input validation for boolean (true/false)
+private static boolean getBooleanInput(String prompt) {
+while (true) {
+System.out.print(prompt);
+String input = scanner.nextLine().trim().toLowerCase();
+if (input.equals("true") || input.equals("yes")) return true;
+if (input.equals("false") || input.equals("no")) return false;
+System.out.println("Invalid input. Enter true/false.");
+}
+}
+}
+
 Output:
 ===== Recipe Book Menu =====
 1. Add Dinner Recipe
